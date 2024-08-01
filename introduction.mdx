@@ -17,17 +17,18 @@ If you don't have an app yet, that's ok! Use our starter repo (link)
 
 1. [Get your Tapestry API Key](https://app.usetapestry.dev/)
 2. Set a namespace for your app. Each namespace is unique and helps distinguish your app's profiles, follows, content, likes, etc from those of the other apps built on Tapestry.
-3. Test your API key using the [API Reference](https://api.usetapestry.dev/docs). Try this simple request to get all the followers of a popular wallet address.
+3. Test your API key using the [API Reference](https://api.usetapestry.dev/docs). You can send test requests from this page.
+4. Try this simple request to get all the followers of a popular wallet address.
     ```jsx
     fetch('https://api.usetapestry.dev/profile/followers/2qrWc9p5vatLH3kp4CiVXrdQ4V293d8qzmg4ziez6T4k?apiKey=YOUR_API_KEY')
     ```
-4. that's it! now you have what you need to start building
+5. That's it. Now you have what you need to start building!
 
 ### Create Profile
 
 The first step in most apps on Tapestry is creating composable user identities. This is achieved through profile creation. Each profile on Tapestry is namespaced to a specific app, but connected to a public key. This enables a single public key to own many profiles on many different apps, and gives your users the flexibility to join your app and import their profiles as they do so, speeding up onboarding and shortening their time to value.
 
-To create a profile, pass in their public key (we recommend getting this from wallet adapter), the blockchain the public key belongs to (we default to Solana), and at minimum a username.
+To create a profile, pass in their public key (we recommend getting this from the Wallet Adapter), the blockchain the public key belongs to (we default to Solana), and at minimum a username.
 
 ```jsx
 fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
@@ -36,7 +37,7 @@ headers: {
 'Content-Type': 'application/json'
 },
 body: JSON.stringify({
-walletAddress: '',
+walletAddress: 'WALLET_ADDRESS_HERE',
 blockchain: 'Solana',
 execution: 'FAST_UNCONFIRMED'
 })
@@ -45,11 +46,11 @@ execution: 'FAST_UNCONFIRMED'
 
 If you want to add additional information, you can see the fields here.
 
-@Nicholas Oxford can we put the findOrCreate spec in here (synced with the openAPI spec)
+*@Nicholas Oxford can we put the findOrCreate spec in here (synced with the openAPI spec)*
 
 If you want to add fields, [contact us](mailto:nemo@primitives.xyz). 
 
-If you are a web2 app with no public key, [contact us](mailto:nemo@primitives.xyz).
+If you are a web2 app with no public keys for users, [contact us](mailto:nemo@primitives.xyz).
 
 Once the code executes, you have created a node for the profile, a node for the wallet (if that public key did not exist on the protocol yet) and one edge connecting them.
 
