@@ -1,71 +1,60 @@
 ---
-title: Tapestry Documentation
+title: Tapestry Quickstart
 description: 'Welcome to the Tapestry Docs! For API reference, please visit [https://api.usetapestry.dev/docs](https://api.usetapestry.dev/docs)'
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+# Quickstart
 
-## Setting up
+you can get set up building with tapestry in just 9 minutes with this quick start guide. 
 
-The first step to world-class documentation is setting up your editing environments.
+### Prerequisites
 
-<CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
-</CardGroup>
+In order to integrate the API, your app needs 
 
-## Make it yours
+- minimum versions of any frameworks/languages?
 
-Update your docs to your brand and add valuable content for the best user conversion.
+If you don’t have an app yet, that’s ok! Use our starter repo (link)
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+1. go to URL to get your api key
+2. set a namespace for your app. each namespace is unique and helps distinguish your app’s profiles, follows, content, likes, etc from the other apps building on the protocol.
+3. test your api key using the api reference (link). try this simple request to get all the followers of a popular wallet address.
+    1. code example
+4. that’s it! now you have what you need to start building
+
+### Create Profile
+
+The first step in most apps on Tapestry is creating composable user identities. This is achieved through profile creation. Each profile on Tapestry is namespaced to a specific app, but connected to a public key. This enables a single public key to own many profiles on many different apps, and gives your users the flexibility to join your app and import their profiles as they do so, speeding up onboarding and shortening their time to value.
+
+To create a profile, pass in their public key (we recommend getting this from wallet adapter), the blockchain the public key belongs to (we default to Solana), and at minimum a username.
+
+```jsx
+fetch('[https://api.usetapestry.dev/profile/findOrCreate?apiKey=](https://api.usetapestry.dev/profile/findOrCreate?apiKey=)', {
+method: 'POST',
+headers: {
+'Content-Type': 'application/json'
+},
+body: JSON.stringify({
+walletAddress: '',
+blockchain: 'Solana',
+execution: 'FAST_UNCONFIRMED'
+})
+})
+```
+
+If you want to add additional information, you can see the fields here.
+
+@Nicholas Oxford can we put the findOrCreate spec in here (synced with the openAPI spec)
+
+If you want to add fields, [contact us](mailto:nemo@primitives.xyz). 
+
+If you are a web2 app with no public key, [contact us](mailto:nemo@primitives.xyz).
+
+Once the code executes, you have created a node for the profile, a node for the wallet (if that public key did not exist on the protocol yet) and one edge connecting them.
+
+To read this information back, to create a user’s profile page for example, use the following:
+
+```jsx
+fetch('[https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=](https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=)')
+```
+
+This will return everything in the profile node you just created.
