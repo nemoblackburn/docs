@@ -13,13 +13,15 @@ In order to integrate the API, your app needs
 
 - minimum versions of any frameworks/languages?
 
-If you don’t have an app yet, that’s ok! Use our starter repo (link)
+If you don't have an app yet, that's ok! Use our starter repo (link)
 
-1. go to URL to get your api key
-2. set a namespace for your app. each namespace is unique and helps distinguish your app’s profiles, follows, content, likes, etc from the other apps building on the protocol.
-3. test your api key using the api reference (link). try this simple request to get all the followers of a popular wallet address.
-    1. code example
-4. that’s it! now you have what you need to start building
+1. [Get your Tapestry API Key](https://app.usetapestry.dev/)
+2. Set a namespace for your app. Each namespace is unique and helps distinguish your app's profiles, follows, content, likes, etc from those of the other apps built on Tapestry.
+3. Test your API key using the [API Reference](https://api.usetapestry.dev/docs). Try this simple request to get all the followers of a popular wallet address.
+    ```jsx
+    fetch('https://api.usetapestry.dev/profile/followers/2qrWc9p5vatLH3kp4CiVXrdQ4V293d8qzmg4ziez6T4k?apiKey=YOUR_API_KEY')
+    ```
+4. that's it! now you have what you need to start building
 
 ### Create Profile
 
