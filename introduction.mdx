@@ -18,8 +18,8 @@ If you don't have an app yet, that's ok! Use our starter repo (link)
 1. [Get your Tapestry API Key](https://app.usetapestry.dev/)
 2. Set a namespace for your app. Each namespace is unique and helps distinguish your app's profiles, follows, content, likes, etc from those of the other apps built on Tapestry.
 3. Test your API key using the [API Reference](https://api.usetapestry.dev/docs). Try this simple request to get all the followers of a popular wallet address.
-    ```jsx
-    fetch('https://api.usetapestry.dev/profile/followers/2qrWc9p5vatLH3kp4CiVXrdQ4V293d8qzmg4ziez6T4k?apiKey=YOUR_API_KEY')
+    ```ts
+    await fetch('https://api.usetapestry.dev/profile/followers/2qrWc9p5vatLH3kp4CiVXrdQ4V293d8qzmg4ziez6T4k?apiKey=YOUR_API_KEY')
     ```
 5. That's it. Now you have what you need to start building!
 
@@ -29,8 +29,8 @@ The first step in most apps on Tapestry is creating composable user identities. 
 
 To create a profile, pass in their public key (we recommend getting this from the Wallet Adapter), the blockchain the public key belongs to (we default to Solana), and at minimum a username.
 
-```jsx
-fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
+```ts
+await fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
