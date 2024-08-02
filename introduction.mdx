@@ -17,8 +17,7 @@ If you don't have an app yet, that's ok! Use our starter repo (link)
 
 1. [Get your Tapestry API Key](https://app.usetapestry.dev/)
 2. Set a namespace for your app. Each namespace is unique and helps distinguish your app's profiles, follows, content, likes, etc from those of the other apps built on Tapestry.
-3. Test your API key using the [API Reference](https://api.usetapestry.dev/docs). You can send test requests from this page.
-4. Try this simple request to get all the followers of a popular wallet address.
+3. Test your API key using the [API Reference](https://api.usetapestry.dev/docs). Try this simple request to get all the followers of a popular wallet address.
     ```jsx
     fetch('https://api.usetapestry.dev/profile/followers/2qrWc9p5vatLH3kp4CiVXrdQ4V293d8qzmg4ziez6T4k?apiKey=YOUR_API_KEY')
     ```
@@ -32,15 +31,15 @@ To create a profile, pass in their public key (we recommend getting this from th
 
 ```jsx
 fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
-method: 'POST',
-headers: {
-'Content-Type': 'application/json'
-},
-body: JSON.stringify({
-walletAddress: 'WALLET_ADDRESS_HERE',
-blockchain: 'Solana',
-execution: 'FAST_UNCONFIRMED'
-})
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    walletAddress: 'WALLET_ADDRESS_HERE',
+    blockchain: 'Solana',
+    execution: 'FAST_UNCONFIRMED'
+  })
 })
 ```
 
