@@ -56,8 +56,8 @@ Once the code executes, you have created a node for the profile, a node for the 
 ### Read Profile
 To read this information back, to populate a user's profile page for example, use the following:
 
-```jsx
-fetch('[https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=](https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=)')
+```ts
+await fetch('[https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=](https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=)')
 ```
 
 This will return everything in the profile node you just created.
