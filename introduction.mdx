@@ -7,11 +7,7 @@ description: 'Welcome to the Tapestry Docs! For API reference, please visit <a h
 
 you can get set up building with tapestry in just 9 minutes with this quick start guide. 
 
-### Prerequisites
-
-In order to integrate the API, your app needs 
-
-- minimum versions of any frameworks/languages?
+### Get Your API Key
 
 If you don't have an app yet, that's ok! Use our starter repo (link)
 
@@ -27,7 +23,7 @@ If you don't have an app yet, that's ok! Use our starter repo (link)
 
 The first step in most apps on Tapestry is creating composable user identities. This is achieved through profile creation. Each profile on Tapestry is namespaced to a specific app, but connected to a public key. This enables a single public key to own many profiles on many different apps, and gives your users the flexibility to join your app and import their profiles as they do so, speeding up onboarding and shortening their time to value.
 
-To create a profile, pass in their public key (we recommend getting this from the Wallet Adapter), the blockchain the public key belongs to (we default to Solana), and at minimum a username.
+To create a profile, pass in the user's public key (we recommend getting this from the Wallet Adapter), the blockchain the public key belongs to (we default to Solana), and at minimum a username.
 
 ```jsx
 fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
@@ -43,15 +39,13 @@ fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
 })
 ```
 
-If you want to add additional information, you can see the fields here.
-
-*@Nicholas Oxford can we put the findOrCreate spec in here (synced with the openAPI spec)*
+If you want to add additional information, you can see the fields <a href="https://api.usetapestry.dev/docs#/tag/profile/POST/profile/findOrCreate" target="_blank" rel="noopener noreferrer">here</a>.
 
 If you want to add fields, [contact us](mailto:nemo@primitives.xyz). 
 
 If you are a web2 app with no public keys for users, [contact us](mailto:nemo@primitives.xyz).
 
-Once the code executes, you have created a node for the profile, a node for the wallet (if that public key did not exist on the protocol yet) and one edge connecting them.
+Once the code executes, you will have created a node for the profile, a node for the wallet (if that public key did not exist on the protocol yet) and one edge connecting them.
 
 ### Read Profile
 To read this information back, to populate a user's profile page for example, use the following:
@@ -60,4 +54,30 @@ To read this information back, to populate a user's profile page for example, us
 await fetch('[https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=](https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=)')
 ```
 
-This will return everything in the profile node you just created.
+This will return everything in the profile node you just created. Here's an example response:
+
+```json
+{
+  "profile": {
+    "id": 268,
+    "label": "nehemiah",
+    "properties": [
+      {
+        "key": "username",
+        "value": "nehemiah"
+      }
+    ],
+    "entityType": "node",
+    "socialEntityType": "profile",
+    "socialEntityAction": null,
+    "createdAt": "2024-07-19T14:57:52.349Z",
+    "updatedAt": "2024-07-19T14:57:52.349Z",
+    "team_id": 5,
+    "blockchain": "Solana",
+    "username": "nehemiah"
+  },
+  "socialCounts": {
+    "followers": 67,
+    "following": 16
+  }
+}
