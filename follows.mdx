@@ -20,3 +20,15 @@ await fetch('https://api.usetapestry.dev/profile/follow?apiKey=YOUR_API_KEY', {
   })
 })
 ```
+
+To check if the follow succeeded, you can poll the followers count of `nehemiah` using the below:
+
+```jsx
+await fetch('https://api.usetapestry.dev/profile/followers/__STARTID__?apiKey=YOUR_API_KEY')
+```
+
+and you can also poll the following count of `marcus` using the below:
+
+```jsx
+await fetch('https://api.usetapestry.dev/profile/following/__STARTID__?apiKey=YOUR_API_KEY')
+```
