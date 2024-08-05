@@ -13,11 +13,7 @@ If you don't have an app yet, that's ok! Use our starter repo (link)
 
 1. [Get your Tapestry API Key](https://app.usetapestry.dev/)
 2. Set a namespace for your app. Each namespace is unique and helps distinguish your app's profiles, follows, content, likes, etc from those of the other apps built on Tapestry.
-3. Test your API key using the [API Reference](https://api.usetapestry.dev/docs). Try this simple request to get all the followers of a popular wallet address.
-    ```ts
-    await fetch('https://api.usetapestry.dev/profile/followers/2qrWc9p5vatLH3kp4CiVXrdQ4V293d8qzmg4ziez6T4k?apiKey=YOUR_API_KEY')
-    ```
-5. That's it. Now you have what you need to start building!
+3. That's it. Now you have what you need to start building!
 
 ### Create Profile
 
@@ -39,9 +35,7 @@ fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
 })
 ```
 
-If you want to add additional information, you can see the fields <a href="https://api.usetapestry.dev/docs#/tag/profile/POST/profile/findOrCreate" target="_blank" rel="noopener noreferrer">here</a>.
-
-If you want to add fields, [contact us](mailto:nemo@primitives.xyz). 
+If you want to add additional information, you can store any data as properties on the profile via key-value pairs.
 
 If you are a web2 app with no public keys for users, [contact us](mailto:nemo@primitives.xyz).
 
