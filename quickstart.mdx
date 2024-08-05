@@ -44,7 +44,7 @@ Once the code executes, you will have created a node for the profile, a node for
 To read this information back, use the following. Put the profile's username in the request:
 
 ```ts
-await fetch('[https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=](https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=)')
+await fetch('https://api.usetapestry.dev/profile/user_id?apiKey=YOUR_API_KEY')
 ```
 
 This will return everything in the profile node you just created. Here's an example response:
@@ -53,7 +53,7 @@ This will return everything in the profile node you just created. Here's an exam
 {
   "profile": {
     "id": 268,
-    "label": "nehemiah",
+    "label": "test_user",
     "properties": [
       {
         "key": "username",
@@ -70,7 +70,7 @@ This will return everything in the profile node you just created. Here's an exam
     "username": "nehemiah"
   },
   "socialCounts": {
-    "followers": 67,
-    "following": 16
+    "followers": 0,
+    "following": 0
   }
 }
