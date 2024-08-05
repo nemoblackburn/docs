@@ -23,14 +23,14 @@ To create a profile, pass in the user's public key (we recommend getting this fr
 
 ```ts
 await fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    walletAddress: 'WALLET_ADDRESS_HERE',
-    id: 'username_here'
-  })
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+        walletAddress: 'WALLET_ADDRESS_HERE',
+        id: 'username_here'
+    })
 })
 ```
 
