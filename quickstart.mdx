@@ -42,7 +42,7 @@ If you are a web2 app with no public keys for users, [contact us](mailto:nemo@pr
 Once the code executes, you will have created a node for the profile, a node for the wallet (if that public key did not exist on the protocol yet) and one edge connecting them.
 
 ### Read Profile
-To read this information back, to populate a user's profile page for example, use the following:
+To read this information back, use the following. Put the profile's username in the request:
 
 ```ts
 await fetch('[https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=](https://api.usetapestry.dev/profile/__ADDRESS__?apiKey=)')
