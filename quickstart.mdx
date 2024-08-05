@@ -5,7 +5,7 @@ description: 'Welcome to the Tapestry Docs! For API reference, please visit <a h
 
 # Quickstart
 
-You can get set up building with tapestry in just 9 minutes with this quick start guide. 
+You can get set up building with tapestry in just 9 minutes with this quickstart guide. 
 
 ### Get Your API Key
 
@@ -21,21 +21,20 @@ The first step in most apps on Tapestry is creating composable user identities. 
 
 To create a profile, pass in the user's public key (we recommend getting this from the Wallet Adapter), the blockchain the public key belongs to (we default to Solana), and at minimum a username.
 
-```jsx
-fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
+```ts
+await fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
   },
   body: JSON.stringify({
     walletAddress: 'WALLET_ADDRESS_HERE',
-    blockchain: 'Solana',
-    execution: 'FAST_UNCONFIRMED'
+    id: 'username_here'
   })
 })
 ```
 
-If you want to add additional information, you can store any data as properties on the profile via key-value pairs.
+If you want to add additional information, you can pass in any data as key-value pairs.
 
 If you are a web2 app with no public keys for users, [contact us](mailto:nemo@primitives.xyz).
 
