@@ -1,0 +1,22 @@
+---
+title: 'Writing Follows to your Graph'
+description: 'How to put follows onchain when a user follows another user'
+---
+
+Follows represent a follow relationship between two users. Creating follows is easy. Simply pass in the id of the user creating the follow (i.e. the follower) into the `startId` field, and id of the follow recipient (i.e. the followee) into the `endId` field. Use the same id you used when creating the profile. To lookup a user id, you can use getProfilesFromWallet
+
+Here’s an example command that makes user `marcus` follow user `nehemiah` .
+
+```jsx
+await fetch('https://api.usetapestry.dev/profile/follow?apiKey=YOUR_API_KEY', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    shouldWriteOnChain: true,
+    startId: 'marcus',
+    endId: 'nehemiah',
+  })
+})
+```
