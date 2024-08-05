@@ -27,7 +27,7 @@ To create a profile, pass in the user's public key in the `id` field (we recomme
 
 * `FAST_UNCONFIRMED` performs the write and returns a 200 before the onchain transaction has landed, while optimistically trying to land the onchain transaction in the background. This is the fastest roundtrip, with average times of under 1s.
 * `QUICK_SIGNATURE` returns a transaction signature for the onchain transaction, but does not attempt to confirm it. This option is best if you want to use your own confirmation logic.
-* `CONFIRMED_AND_PARSED` waits for the onchain transaction to be sent and confirmed before returning a 200. This is the slowest execution method, with roundtrip times for 200s averaging 15s. 
+* `CONFIRMED_AND_PARSED` waits for the onchain transaction to be sent and confirmed before returning a 200. This is the slowest execution method, with roundtrip times for 200 responses averaging 15s. 
 
 ```ts
 await fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KEY', {
