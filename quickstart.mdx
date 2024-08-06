@@ -15,9 +15,9 @@ If you don't have an app yet, that's ok! Use our starter repo (link)
 2. Set a namespace for your app. Each namespace is unique and helps distinguish your app's profiles, follows, content, likes, etc from those of the other apps built on Tapestry.
 3. That's it. Now you have what you need to start building!
 
-### Create Profile
+### Create a Profile on Your Graph
 
-The first step in most apps on Tapestry is creating composable user identities. This is achieved through profile creation. Each profile on Tapestry is namespaced to a specific app, but connected to a public key. This enables a single public key to own many profiles on many different apps, and gives your users the flexibility to join your app and import their profiles as they do so, speeding up onboarding and shortening their time to value.
+The first step in most apps on Tapestry is creating composable user identities. This is achieved through profile creation. Wallet nodes are shared between all apps on Tapestry. Each profile on Tapestry is namespaced to a specific app, but connected to a wallet's public key. This enables a single wallet to own many profiles on many different apps, and gives your users the flexibility to join your app and import their profiles as they do so, speeding up onboarding and shortening their time to value.
 
 To create a profile, pass in the user's public key in the `id` field (we recommend getting this from the Wallet Adapter) and their `username`. If you want to create a profile without a username, you can leave this field blank and the API will automatically set their username to the same string you pass into `id`.
 
@@ -44,17 +44,17 @@ await fetch('https://api.usetapestry.dev/profile/findOrCreate?apiKey=YOUR_API_KE
 })
 ```
 
-If you want to add additional information, you can pass in any data as key-value pairs.
+If you want to store additional information, you can pass in any data as key-value pairs.
 
 If you are a web2 app with no public keys for users, [contact us](mailto:nemo@primitives.xyz).
 
 Once the code executes, you will have created a node for the profile, a node for the wallet (if that public key did not exist on the protocol yet) and one edge connecting them.
 
 ### Read Profile
-To read this information back, use the following. Put the profile's username in the request:
+To read this information back, use the following. Put the profile's `username` or `id` in the request:
 
 ```ts
-await fetch('https://api.usetapestry.dev/profile/user_id?apiKey=YOUR_API_KEY')
+await fetch('https://api.usetapestry.dev/profile/__ID_OR_USERNAME__?apiKey=YOUR_API_KEY')
 ```
 
 This will return everything in the profile node you just created. Here's an example response:
@@ -84,3 +84,6 @@ This will return everything in the profile node you just created. Here's an exam
     "following": 0
   }
 }
+```
+
+Try creating a second profile. In the next guide, we'll walk through how to connect them on your graph.
